@@ -2,13 +2,18 @@ import React from "react";
 import { useState } from "react";
 
 function Form() {
-  const [form, setForm] = useState({ fullname: "", phone_namber: "" });
+  const [form, setForm] = useState({ fullname: "", phone_number: "" });
 
   const onChangeInput = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
   const onSubmit =(e)=>{
     e.preventDefault();
+
+    if (form.fullname === "" || form.phone_number === "") {
+      return false;
+      
+    }
     console.log(form)
   }
 
