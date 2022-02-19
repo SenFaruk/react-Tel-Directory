@@ -67,3 +67,9 @@ function App() {
 }
 
 export default App;
+
+
+### FORM COMPONENT'İNİN GELİŞTİRİLMESİ ###
+
+iki tane input birtane de buttonnumuz var.
+

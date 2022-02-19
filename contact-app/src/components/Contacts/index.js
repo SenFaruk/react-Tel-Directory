@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
+import Form from "./Form";
 import List from "./List";
-import Form from "./Form"
 
 function Contacts() {
   return (
     <div>
-        <List/>
-        <Form/>
+      <List />
+      <Form/>
     </div>
-  )
+  );
 }
 
-export default Contacts
+export default Contacts;
