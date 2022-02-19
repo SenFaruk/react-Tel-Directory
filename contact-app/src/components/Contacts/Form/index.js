@@ -1,8 +1,14 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 
-function Form() {
-  const [form, setForm] = useState({ fullname: "", phone_number: "" });
+const initialFormValues = { fullname: "", phone_number: "" }
+function Form({addContact,contacts}) {
+ 
+  const [form, setForm] = useState(initialFormValues);
+
+  useEffect(()=>{
+    setForm(initialFormValues);
+  },[contacts])
 
   const onChangeInput = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -14,11 +20,11 @@ function Form() {
       return false;
       
     }
-    console.log(form)
+    addContact([...contacts, form]);
+
+  
+ 
   }
-
-
-
 
   return (
     <form onSubmit={onSubmit}>
@@ -26,6 +32,7 @@ function Form() {
         <input
           name="fullname"
           placeholder="Fullname"
+          value={form.fullname}
           onChange={onChangeInput}
         />
       </div>
@@ -33,6 +40,7 @@ function Form() {
         <input
           name="phone_number"
           placeholder="phone number"
+          value={form.phone_number}
           onChange={onChangeInput}
         />
       </div>
